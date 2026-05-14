@@ -54,8 +54,9 @@ body{
 .page-bg{
   position:fixed;top:0;left:50%;transform:translateX(-50%);
   width:100%;max-width:750px;height:100vh;
-  background-image:url('img/bg-hero.jpg');
-  background-size:cover;background-position:center top;background-repeat:no-repeat;
+  background:
+    url('img/bg-hero.jpg') center/contain no-repeat,
+    radial-gradient(ellipse at 50% 40%, #15101f 0%, #0a0817 60%, #060410 100%);
   pointer-events:none;z-index:0;
 }
 
@@ -296,6 +297,23 @@ body{
 .daka-tail{margin-top:30px;text-align:center;font-family:var(--f-serif);font-size:var(--t-body-sm);color:var(--gold-2);line-height:1.9;font-weight:300;letter-spacing:1px}
 .daka-tail strong{display:block;margin-top:10px;color:var(--gold-3);font-size:var(--t-body);font-weight:600;letter-spacing:2px}
 
+/* 大咖成员卡片 */
+.daka-member{margin-top:8px;padding:clamp(20px,4.5vw,28px);background:linear-gradient(135deg,rgba(200,163,92,0.10),rgba(0,0,0,0.45));border:1px solid var(--line);border-left:3px solid var(--gold);text-align:left;position:relative}
+.daka-member::before,.daka-member::after{content:"";position:absolute;width:12px;height:12px;border:1px solid var(--gold);display:block}
+.daka-member::before{top:-1px;right:-1px;border-left:none;border-bottom:none}
+.daka-member::after{bottom:-1px;right:-1px;border-left:none;border-top:none}
+.daka-name{font-family:var(--f-serif);color:var(--gold-2);font-size:clamp(22px,5vw,30px);letter-spacing:clamp(6px,2vw,12px);font-weight:600;margin-bottom:8px}
+.daka-meta{font-family:var(--f-sans);color:var(--gold);font-size:var(--t-tiny);letter-spacing:2px;margin-bottom:6px;font-weight:400}
+.daka-edu{font-family:var(--f-sans);color:var(--cream);font-size:var(--t-tiny);font-weight:300;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--line-d);letter-spacing:1px}
+.daka-exp{list-style:none;padding:0;margin:0}
+.daka-exp li{font-family:var(--f-sans);color:var(--cream);font-size:var(--t-body-sm);line-height:1.75;font-weight:300;padding:8px 0 8px 22px;position:relative}
+.daka-exp li::before{content:"◆";color:var(--gold);position:absolute;left:0;top:9px;font-size:10px}
+.daka-exp strong{color:var(--gold-2);font-weight:500;letter-spacing:0.5px}
+.daka-exp em{display:block;font-style:normal;color:var(--muted);font-size:90%;margin-top:2px;letter-spacing:0.5px}
+.daka-more{margin-top:20px;padding-top:18px;text-align:center;border-top:1px dashed var(--line-d)}
+.daka-more p{font-family:var(--f-serif);color:var(--gold-2);font-size:var(--t-body-sm);font-weight:300;letter-spacing:3px}
+.daka-more p.sub{margin-top:6px;color:var(--muted);font-size:var(--t-tiny);letter-spacing:1px}
+
 /* ============ TEACHER ============ */
 .teacher{
   position:relative;padding:clamp(36px,7vw,50px) clamp(26px,5.5vw,40px);
@@ -531,11 +549,11 @@ body{
     </div>
   </section>
 
-  <!-- ============ 48 节课程 ============ -->
+  <!-- ============ 45 节课程 ============ -->
   <section class="section">
     <div class="sec-head reveal">
-      <div class="sec-en">CURRICULUM · 48 LESSONS</div>
-      <div class="sec-title">四 十 八 节 · 完 整 目 录</div>
+      <div class="sec-en">CURRICULUM · 45 LESSONS</div>
+      <div class="sec-title">四 十 五 节 · 完 整 目 录</div>
       <div class="sec-sub">六大阶段 · 由浅入深 · 从认知到赚钱</div>
       <div class="diamond"><span class="ln"></span><span class="d"></span><span class="ln"></span></div>
     </div>
@@ -543,75 +561,65 @@ body{
     <div class="stage reveal">
       <div class="cur-head"><div class="l"><span class="vol">CHAPTER 0</span><h3>开课导言</h3></div><span class="badge">3 节</span></div>
       <div class="lessons">
-        <div class="lesson"><span class="num">0.1</span><span class="txt">这门课能给你什么、不能给你什么</span></div>
+        <div class="lesson"><span class="num">0.1</span><span class="txt">为什么要学 AI</span></div>
         <div class="lesson"><span class="num">0.2</span><span class="txt">2026 年小白学 AI 的正确路径图</span></div>
-        <div class="lesson"><span class="num">0.3</span><span class="txt">学习约定:学逻辑不追工具 / 够用就好 / 不追免费</span></div>
+        <div class="lesson gold"><span class="num">0.3</span><span class="txt">入门体验:Claude Code 安装和应用</span></div>
       </div>
     </div>
 
     <div class="stage reveal">
-      <div class="cur-head"><div class="l"><span class="vol">CHAPTER I</span><h3>AI 通识与底层逻辑</h3></div><span class="badge">7 节</span></div>
+      <div class="cur-head"><div class="l"><span class="vol">CHAPTER I</span><h3>AI 通识与底层逻辑</h3></div><span class="badge">5 节</span></div>
       <div class="lessons">
         <div class="lesson"><span class="num">1.1</span><span class="txt">一句话讲清大模型到底是什么</span></div>
         <div class="lesson"><span class="num">1.2</span><span class="txt">大模型能力边界:能做什么、不能做什么</span></div>
-        <div class="lesson"><span class="num">1.3</span><span class="txt">2026 全球大模型格局:国外 / 国内大厂 / 国内新贵</span></div>
-        <div class="lesson"><span class="num">1.4</span><span class="txt">提示词不是玄学:3 个真正有用的原则</span></div>
-        <div class="lesson"><span class="num">1.5</span><span class="txt">知识库是什么、什么时候才该用</span></div>
-        <div class="lesson"><span class="num">1.6</span><span class="txt">从工具到智能体:一切皆 Agent 的底层逻辑</span></div>
-        <div class="lesson"><span class="num">1.7</span><span class="txt">AI 绘画 / 视频 / 语音的认知地图</span></div>
+        <div class="lesson"><span class="num">1.3</span><span class="txt">提示词不是玄学:3 个真正有用的原则</span></div>
+        <div class="lesson"><span class="num">1.4</span><span class="txt">知识库是什么、什么时候才该用</span></div>
+        <div class="lesson"><span class="num">1.5</span><span class="txt">从工具到智能体:一切皆 Agent 的底层逻辑</span></div>
       </div>
     </div>
 
     <div class="stage reveal">
-      <div class="cur-head"><div class="l"><span class="vol">CHAPTER II</span><h3>AI 工具栈</h3></div><span class="badge">8 节</span></div>
+      <div class="cur-head"><div class="l"><span class="vol">CHAPTER II</span><h3>AI 大模型与工具栈</h3></div><span class="badge">9 节</span></div>
       <div class="lessons">
-        <div class="lesson"><span class="num">2.1</span><span class="txt">不要再囤工具:一个框架看清所有 AI 工具</span></div>
-        <div class="lesson"><span class="num">2.2</span><span class="txt">我每天用的 AI 工具清单(自用栈公开)</span></div>
-        <div class="lesson"><span class="num">2.3</span><span class="txt">国产大模型选型:智谱 / DeepSeek / Kimi 等</span></div>
-        <div class="lesson"><span class="num">2.4</span><span class="txt">国外大模型怎么用上:渠道、中转 API、最佳实践</span></div>
-        <div class="lesson"><span class="num">2.5</span><span class="txt">飞书 + AI:知识管理体系</span></div>
-        <div class="lesson"><span class="num">2.6</span><span class="txt">语音转文本:被忽视的提效王牌</span></div>
-        <div class="lesson"><span class="num">2.7</span><span class="txt">AI 绘画 &amp; 视频工具速通</span></div>
-        <div class="lesson"><span class="num">2.8</span><span class="txt">信息源:怎么不被工具浪潮卷走</span></div>
+        <div class="lesson"><span class="num">2.1</span><span class="txt">国内外主流大模型全景:OpenAI / Anthropic / Google vs 字节 / 阿里 / DeepSeek / 智谱</span></div>
+        <div class="lesson"><span class="num">2.2</span><span class="txt">WorkBuddy 深度:桌面端 AI 工作流实战</span></div>
+        <div class="lesson"><span class="num">2.3</span><span class="txt">Obsidian 知识库:个人 / 团队知识管理最佳实践</span></div>
+        <div class="lesson"><span class="num">2.4</span><span class="txt">飞书 + AI:多维表格 / 文档 / 会议全链路提效</span></div>
+        <div class="lesson"><span class="num">2.5</span><span class="txt">什么是 CLI:5 分钟扫盲,别发怵</span></div>
+        <div class="lesson"><span class="num">2.6</span><span class="txt">Claude Code 基础操作:让 AI 真的干活</span></div>
+        <div class="lesson"><span class="num">2.7</span><span class="txt">Skill 自定义技能:复刻你自己的工作流</span></div>
+        <div class="lesson"><span class="num">2.8</span><span class="txt">MCP 工具协议:让智能体接管更多事</span></div>
+        <div class="lesson"><span class="num">2.9</span><span class="txt">配置文件:智能体的底层语言</span></div>
       </div>
     </div>
 
     <div class="stage reveal">
-      <div class="cur-head"><div class="l"><span class="vol">CHAPTER III</span><h3>智能体学习路径</h3></div><span class="badge">10 节</span></div>
+      <div class="cur-head"><div class="l"><span class="star">★</span><span class="vol">CHAPTER III</span><h3>普通人的 AI 智能体开发之路</h3></div><span class="badge">10 节</span></div>
       <div class="lessons">
-        <div class="lesson gold"><span class="num">3.1</span><span class="txt">智能体全景:ChatBot → 桌面端 → CLI<br/><span style="color:var(--gold);font-size:90%;">(含「为什么本课不教 n8n / 扣子」立场输出)</span></span></div>
-        <div class="lesson"><span class="num">3.2</span><span class="txt">上手第一站:WorkBuddy / 桌面端智能体</span></div>
-        <div class="lesson"><span class="num">3.3</span><span class="txt">什么是 CLI:5 分钟扫盲,别发怵</span></div>
-        <div class="lesson"><span class="num">3.4</span><span class="txt">Claude Code 安装(国内网络方案)</span></div>
-        <div class="lesson"><span class="num">3.5</span><span class="txt">Claude Code 基础操作:让 AI 真的干活</span></div>
-        <div class="lesson"><span class="num">3.6</span><span class="txt">Skill 自定义技能:复刻你自己的工作流</span></div>
-        <div class="lesson"><span class="num">3.7</span><span class="txt">MCP 工具协议:让智能体接管更多事</span></div>
-        <div class="lesson"><span class="num">3.8</span><span class="txt">配置文件:智能体的底层语言</span></div>
-        <div class="lesson"><span class="num">3.9</span><span class="txt">SubAgent / 多智能体协作</span></div>
-        <div class="lesson"><span class="num">3.10</span><span class="txt">智能体调试与避坑</span></div>
+        <div class="lesson"><span class="num">3.1</span><span class="txt">智能体开发全景:从提示词到模型调优,到底要会什么</span></div>
+        <div class="lesson"><span class="num">3.2</span><span class="txt">提示词工程进阶:系统设计与调试技巧</span></div>
+        <div class="lesson"><span class="num">3.3</span><span class="txt">知识库入门:为什么智能体需要外挂知识库</span></div>
+        <div class="lesson"><span class="num">3.4</span><span class="txt">知识库实战:文档切分、向量化与检索召回</span></div>
+        <div class="lesson"><span class="num">3.5</span><span class="txt">知识库进阶:召回质量优化与效果评估</span></div>
+        <div class="lesson"><span class="num">3.6</span><span class="txt">智能体开发:工具调用与 Function Calling</span></div>
+        <div class="lesson"><span class="num">3.7</span><span class="txt">智能体开发:多步规划与多智能体编排</span></div>
+        <div class="lesson"><span class="num">3.8</span><span class="txt">数据集标注:什么是好数据,怎么标、怎么管</span></div>
+        <div class="lesson"><span class="num">3.9</span><span class="txt">模型调优入门:什么时候该微调,怎么微调</span></div>
+        <div class="lesson gold"><span class="num">3.10</span><span class="txt">综合实战:从标注到调优,打造一个垂直领域智能体</span></div>
       </div>
     </div>
 
     <div class="stage reveal">
-      <div class="cur-head"><div class="l"><span class="star">★</span><span class="vol">CHAPTER IV</span><h3>普通人用 AI 找到自己的事业</h3></div><span class="badge">10 节</span></div>
-      <div class="subhead"><span class="ln"></span><span class="t">开 篇</span></div>
+      <div class="cur-head"><div class="l"><span class="star">★</span><span class="vol">CHAPTER IV</span><h3>普通人的 AI 运营变现之路</h3></div><span class="badge">8 节</span></div>
       <div class="lessons">
-        <div class="lesson"><span class="num">4.1</span><span class="txt">2026 年普通人用 AI 赚钱的 5 种姿势</span></div>
-        <div class="lesson"><span class="num">4.2</span><span class="txt">两条主路径:做博主 vs 接 AI 改造单</span></div>
-      </div>
-      <div class="subhead"><span class="ln"></span><span class="t">路径 A · 做 AI 内容博主</span></div>
-      <div class="lessons">
-        <div class="lesson"><span class="num">4.3</span><span class="txt">小白入局自媒体:定位 + 内容生产 4 步法</span></div>
-        <div class="lesson gold"><span class="num">4.4</span><span class="txt">案例完整复盘:一键博主分析</span></div>
-        <div class="lesson"><span class="num">4.5</span><span class="txt">持续产出:把内容工作流打包成 Skill</span></div>
-        <div class="lesson"><span class="num">4.6</span><span class="txt">博主变现路径:广告 / 带货 / 出课 / 接咨询</span></div>
-      </div>
-      <div class="subhead"><span class="ln"></span><span class="t">路径 B · 接 AI 改造单</span></div>
-      <div class="lessons">
-        <div class="lesson"><span class="num">4.7</span><span class="txt">接单地图:中小企业最愿意为哪些 AI 服务付钱</span></div>
-        <div class="lesson"><span class="num">4.8</span><span class="txt">标准化产品:把朋友圈 / 会议 / 直播分析打包卖</span></div>
-        <div class="lesson"><span class="num">4.9</span><span class="txt">报价 + 谈单 + 交付 SOP:5000 到 5 万的梯度</span></div>
-        <div class="lesson"><span class="num">4.10</span><span class="txt">独立顾问起步:IP + 服务 + 培训的组合打法</span></div>
+        <div class="lesson"><span class="num">4.1</span><span class="txt">2026 年普通人用 AI 变现的 3 种姿势</span></div>
+        <div class="lesson"><span class="num">4.2</span><span class="txt">小白入局自媒体:定位 + 内容生产 4 步法</span></div>
+        <div class="lesson gold"><span class="num">4.3</span><span class="txt">实战案例:对标分析智能体(一键博主分析)</span></div>
+        <div class="lesson"><span class="num">4.4</span><span class="txt">实战案例:短视频文案知识库</span></div>
+        <div class="lesson"><span class="num">4.5</span><span class="txt">博主变现路径:广告 / 带货 / 出课 / 接咨询</span></div>
+        <div class="lesson"><span class="num">4.6</span><span class="txt">接单地图:中小企业最愿意为哪些 AI 服务付钱</span></div>
+        <div class="lesson"><span class="num">4.7</span><span class="txt">报价 + 谈单 + 交付 SOP:5000 到 5 万的梯度</span></div>
+        <div class="lesson"><span class="num">4.8</span><span class="txt">独立顾问起步:IP + 服务 + 培训的组合打法</span></div>
       </div>
     </div>
 
@@ -619,10 +627,10 @@ body{
       <div class="cur-head"><div class="l"><span class="star">★</span><span class="vol">CHAPTER V</span><h3>老板用 AI 赚更多利润</h3></div><span class="badge">8 节</span></div>
       <div class="lessons">
         <div class="lesson"><span class="num">5.1</span><span class="txt">老板视角:AI 在哪儿"省钱",在哪儿"赚钱"</span></div>
-        <div class="lesson"><span class="num">5.2</span><span class="txt">实战:朋友圈文案智能体 — 拉销售转化</span></div>
-        <div class="lesson"><span class="num">5.3</span><span class="txt">实战:会议助手智能体 — 降决策延迟</span></div>
-        <div class="lesson"><span class="num">5.4</span><span class="txt">实战:直播分析专家 — 拆话术、提 GMV</span></div>
-        <div class="lesson"><span class="num">5.5</span><span class="txt">实战:业务知识库 + 客服/培训智能体</span></div>
+        <div class="lesson"><span class="num">5.2</span><span class="txt">实战:朋友圈文案智能体</span></div>
+        <div class="lesson"><span class="num">5.3</span><span class="txt">实战:会议助手智能体</span></div>
+        <div class="lesson"><span class="num">5.4</span><span class="txt">实战:短视频生产智能体(含数字人)</span></div>
+        <div class="lesson"><span class="num">5.5</span><span class="txt">实战:业务知识库 + 客服 / 培训智能体</span></div>
         <div class="lesson"><span class="num">5.6</span><span class="txt">实战:销售线索清洗 + 自动跟进</span></div>
         <div class="lesson"><span class="num">5.7</span><span class="txt">把企业 SOP 封装成 Skill</span></div>
         <div class="lesson"><span class="num">5.8</span><span class="txt">老板要不要亲自学 Claude Code?</span></div>
@@ -670,15 +678,29 @@ body{
 
     <div class="daka-list reveal">
       <div class="daka-pending">— 首 批 大 咖 团 成 员 —</div>
-      <div class="daka-place">
-        嘉宾 A&nbsp;|&nbsp;身份&nbsp;|&nbsp;一句话亮点<br/>
-        嘉宾 B&nbsp;|&nbsp;身份&nbsp;|&nbsp;一句话亮点<br/>
-        嘉宾 C&nbsp;|&nbsp;身份&nbsp;|&nbsp;一句话亮点<br/>
-        ……
+
+      <div class="daka-member">
+        <div class="daka-name">张 泉</div>
+        <div class="daka-meta">深圳 · 深圳市人工智能协会专家</div>
+        <div class="daka-edu">华中科技大学 · 人工智能硕士</div>
+        <ul class="daka-exp">
+          <li>
+            <strong>拓维信息 · 教育产品副总裁(现任)</strong>
+            <em>A 股上市公司 · 主导教育产品线战略与产品规划</em>
+          </li>
+          <li>
+            <strong>前腾讯 WXG · 企微生态产品总监</strong>
+            <em>负责企业微信生态建设与商业化,年流水突破 10 亿</em>
+          </li>
+        </ul>
+      </div>
+
+      <div class="daka-more">
+        <p>更多大咖团成员陆续公布中</p>
+        <p class="sub">大咖团名单持续扩充,新成员加入不加价</p>
       </div>
     </div>
     <p class="daka-tail reveal">
-      大咖团名单持续扩充 · 新成员加入不加价
       <strong>普通人花 899,不是买一门课,是进一个圈子</strong>
     </p>
   </section>
@@ -720,7 +742,7 @@ body{
       <i class="tl"></i><i class="br"></i>
       <div class="vrow"><span class="lbl">12 场「乘势一线分享会」</span><span class="val">≥ 1200 元</span></div>
       <div class="vrow"><span class="lbl"><strong>乘势大咖团长期陪伴</strong></span><span class="val">难以定价</span></div>
-      <div class="vrow"><span class="lbl">48 节体系化正课</span><span class="val">≥ 899 元</span></div>
+      <div class="vrow"><span class="lbl">45 节体系化正课</span><span class="val">≥ 899 元</span></div>
       <div class="vrow"><span class="lbl">群内持续答疑 + 案例库</span><span class="val">≥ 1000 元</span></div>
       <div class="vrow"><span class="lbl">课程持续更新 + 资产包</span><span class="val">≥ 1000 元</span></div>
       <div class="vrow total"><span class="lbl">总 价 值</span><span class="val">5000+ 元</span></div>
