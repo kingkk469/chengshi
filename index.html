@@ -273,6 +273,30 @@ body{
 .lesson .num{font-family:var(--f-num);color:var(--gold);font-size:var(--t-body-sm);min-width:38px;font-weight:600;letter-spacing:0.5px;flex-shrink:0;padding-top:3px;transition:color 0.3s ease}
 .lesson .txt{font-family:var(--f-sans);font-size:var(--t-body);line-height:1.7;color:var(--cream);font-weight:400;transition:color 0.3s ease;position:relative;z-index:1}
 
+/* 免费试看按钮 — 放在第〇章 stage 卡片末尾 */
+.preview-btn{
+  display:flex;align-items:center;justify-content:center;gap:clamp(8px,2vw,14px);
+  margin-top:18px;padding:clamp(13px,3vw,16px) clamp(16px,4vw,22px);
+  border:1px solid var(--gold);background:linear-gradient(180deg,rgba(200,163,92,0.08),rgba(200,163,92,0.02));
+  color:var(--gold-2);text-decoration:none;
+  font-family:var(--f-serif);font-size:var(--t-body-sm);font-weight:500;letter-spacing:0.25em;
+  position:relative;overflow:hidden;
+  transition:all 0.35s ease;
+}
+.preview-btn::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at center,rgba(200,163,92,0.14),transparent 70%);
+  opacity:0;transition:opacity 0.35s ease;
+}
+.preview-btn:hover{
+  background:linear-gradient(180deg,rgba(200,163,92,0.16),rgba(200,163,92,0.05));
+  color:var(--gold-3);border-color:var(--gold-3);letter-spacing:0.3em;
+}
+.preview-btn:hover::before{opacity:1}
+.preview-btn .star{color:var(--gold-3);font-size:1.1em;position:relative;z-index:1}
+.preview-btn .arrow{font-family:var(--f-num);font-weight:600;position:relative;z-index:1}
+.preview-btn .txt{position:relative;z-index:1}
+
 /* ============ 核武器 ============ */
 .weapon-label{
   display:inline-block;font-family:var(--f-num);font-size:var(--t-mini);letter-spacing:clamp(6px,2vw,10px);
@@ -372,9 +396,9 @@ body{
 .aud.fit h4{color:var(--gold-2)}
 .aud.unfit h4{color:var(--muted)}
 .aud ul{list-style:none}
-.aud li{font-family:var(--f-sans);font-size:var(--t-tiny);line-height:1.85;padding:6px 0;color:var(--cream);font-weight:300}
-.aud.fit li::before{content:"◆ ";color:var(--gold);font-size:10px;vertical-align:middle}
-.aud.unfit li::before{content:"◇ ";color:var(--muted);font-size:10px;vertical-align:middle}
+.aud li{font-family:var(--f-sans);font-size:var(--t-body-sm);line-height:1.9;padding:7px 0;color:var(--cream);font-weight:300}
+.aud.fit li::before{content:"◆ ";color:var(--gold);font-size:0.85em;vertical-align:middle;margin-right:2px}
+.aud.unfit li::before{content:"◇ ";color:var(--muted);font-size:0.85em;vertical-align:middle;margin-right:2px}
 
 /* ============ GUARANTEE ============ */
 .grtee{display:flex;flex-direction:column;gap:14px;padding:clamp(26px,5.5vw,36px);background:rgba(0,0,0,0.4);border:1px solid var(--line)}
@@ -400,7 +424,15 @@ body{
 .cta::after{animation:slow-rotate-rev 60s linear infinite}
 @keyframes slow-rotate-rev{from{transform:rotate(180deg)}to{transform:rotate(540deg)}}
 
-.cta-top{font-family:var(--f-num);font-size:var(--t-mini);letter-spacing:clamp(8px,2.4vw,12px);color:var(--gold);margin-bottom:28px;text-transform:uppercase;font-weight:500}
+.cta-top{font-family:var(--f-num);font-size:var(--t-mini);letter-spacing:clamp(8px,2.4vw,12px);color:var(--gold);margin-bottom:18px;text-transform:uppercase;font-weight:500}
+.cta-badge{
+  display:inline-block;font-family:var(--f-serif);font-size:var(--t-body-sm);
+  letter-spacing:clamp(4px,1.6vw,8px);color:var(--red-2);
+  padding:8px 24px;border:1px solid var(--red);
+  background:rgba(168,48,44,0.12);margin-bottom:24px;font-weight:500;
+  position:relative;animation:badge-pulse 2.4s ease-in-out infinite;
+}
+@keyframes badge-pulse{0%,100%{box-shadow:0 0 0 0 rgba(216,74,58,0.4)}50%{box-shadow:0 0 0 8px rgba(216,74,58,0)}}
 .cta-price{
   font-family:var(--f-num);font-size:var(--t-price-cta);line-height:1;font-weight:700;
   background:linear-gradient(135deg,#f3d678,#c8a35c,#f3d678);
@@ -509,12 +541,6 @@ body{
       <p class="big">普通人这十年最大的势,就是 AI。</p>
     </div>
 
-    <div class="h-price scale-in" data-d="6">
-      <i class="tl"></i><i class="br"></i>
-      <span class="lbl">AI 商 业 实 战 课</span>
-      <span class="num">899</span>
-      <span class="unit">元</span>
-    </div>
   </section>
 
   <!-- ============ 痛点 ============ -->
@@ -557,11 +583,11 @@ body{
     </div>
   </section>
 
-  <!-- ============ 45 节课程 ============ -->
+  <!-- ============ 42 节课程 ============ -->
   <section class="section">
     <div class="sec-head reveal">
-      <div class="sec-en">CURRICULUM · 45 LESSONS</div>
-      <div class="sec-title">四 十 五 节 · 完 整 目 录</div>
+      <div class="sec-en">CURRICULUM · 42 LESSONS</div>
+      <div class="sec-title">四 十 二 节 · 完 整 目 录</div>
       <div class="sec-sub">六大阶段 · 由浅入深 · 从认知到赚钱</div>
       <div class="diamond"><span class="ln"></span><span class="d"></span><span class="ln"></span></div>
     </div>
@@ -573,6 +599,11 @@ body{
         <div class="lesson"><span class="num">0.2</span><span class="txt">2026 年小白学 AI 的正确路径图</span></div>
         <div class="lesson gold"><span class="num">0.3</span><span class="txt">入门体验:Claude Code 安装和应用</span></div>
       </div>
+      <a class="preview-btn" href="https://kingkk469.github.io/lecture-html/examples/course-01-opening.html" target="_blank" rel="noopener">
+        <span class="star">★</span>
+        <span class="txt">免 费 试 看 · 第 〇 章 完 整 版</span>
+        <span class="arrow">→</span>
+      </a>
     </div>
 
     <div class="stage reveal">
@@ -632,16 +663,13 @@ body{
     </div>
 
     <div class="stage reveal">
-      <div class="cur-head"><div class="l"><span class="star">★</span><span class="vol">CHAPTER V</span><h3>老板用 AI 赚更多利润</h3></div><span class="badge">8 节</span></div>
+      <div class="cur-head"><div class="l"><span class="star">★</span><span class="vol">CHAPTER V</span><h3>老板用 AI 赚更多利润</h3></div><span class="badge">5 节</span></div>
       <div class="lessons">
-        <div class="lesson"><span class="num">5.1</span><span class="txt">老板视角:AI 在哪儿"省钱",在哪儿"赚钱"</span></div>
-        <div class="lesson"><span class="num">5.2</span><span class="txt">实战:朋友圈文案智能体</span></div>
-        <div class="lesson"><span class="num">5.3</span><span class="txt">实战:会议助手智能体</span></div>
-        <div class="lesson"><span class="num">5.4</span><span class="txt">实战:短视频生产智能体(含数字人)</span></div>
-        <div class="lesson"><span class="num">5.5</span><span class="txt">实战:业务知识库 + 客服 / 培训智能体</span></div>
-        <div class="lesson"><span class="num">5.6</span><span class="txt">实战:销售线索清洗 + 自动跟进</span></div>
-        <div class="lesson"><span class="num">5.7</span><span class="txt">把企业 SOP 封装成 Skill</span></div>
-        <div class="lesson"><span class="num">5.8</span><span class="txt">老板要不要亲自学 Claude Code?</span></div>
+        <div class="lesson"><span class="num">5.1</span><span class="txt">老板视角:AI 降本增效的底层逻辑 — 省钱 vs 赚钱的边界 · 不必学代码</span></div>
+        <div class="lesson gold"><span class="num">5.2</span><span class="txt">增效实战案例一 · AI 做销售管理:线索清洗 + 自动跟进 + 话术提炼</span></div>
+        <div class="lesson"><span class="num">5.3</span><span class="txt">增效实战案例二 · AI 做营销:朋友圈文案批量 + 短视频数字人</span></div>
+        <div class="lesson"><span class="num">5.4</span><span class="txt">降本实战案例一 · 办公智能体:会议纪要 + 待办提取 + 跨部门同步</span></div>
+        <div class="lesson"><span class="num">5.5</span><span class="txt">降本实战案例二 · 企业知识库智能体:产品手册 + FAQ + 销售经验封装</span></div>
       </div>
     </div>
 
@@ -688,7 +716,7 @@ body{
       <div class="daka-pending">— 首 批 大 咖 团 成 员 —</div>
 
       <div class="daka-member">
-        <div class="daka-name">张 泉</div>
+        <div class="daka-name">Arnold</div>
         <div class="daka-meta">深圳 · 深圳市人工智能协会专家</div>
         <div class="daka-edu">华中科技大学 · 人工智能硕士</div>
         <ul class="daka-exp">
@@ -716,8 +744,8 @@ body{
   <!-- ============ 讲师 ============ -->
   <section class="section">
     <div class="sec-head reveal">
-      <div class="sec-en">INSTRUCTOR</div>
-      <div class="sec-title">讲 师 介 绍</div>
+      <div class="sec-en">INSTRUCTORS</div>
+      <div class="sec-title">讲 师 团 队</div>
       <div class="diamond"><span class="ln"></span><span class="d"></span><span class="ln"></span></div>
     </div>
     <div class="teacher reveal">
@@ -737,6 +765,23 @@ body{
         <span class="punch">不是 AI 工程师讲技术 · 是商业操盘手讲实战</span>
       </div>
     </div>
+
+    <div class="teacher reveal" style="margin-top:36px">
+      <div class="t-name">S 老 师</div>
+      <div class="t-en">Mr. S · 协 同 主 讲 · 化 名 出 镜</div>
+      <div class="t-tags">
+        <span class="t-tag">某互联网大厂 · AI 业务负责人</span>
+        <span class="t-tag">规模化交付实战</span>
+        <span class="t-tag">企业 AI 真正跑出 ROI 的人</span>
+      </div>
+      <p>我有个朋友 —— 在某大厂做 AI 业务负责人。</p>
+      <p style="margin-top:14px;">这次我把他请来,合录这门课。<span class="em">AI 的专业知识</span>和<span class="em">企业的实战案例</span>,会由他来讲。</p>
+      <p>他答应了,但 —— <span class="em">企业身份不便公开</span>。「内容是真的,人不重要。」</p>
+      <div class="t-quote">
+        在企业里真把 AI 做<span style="color:#fff;font-weight:600;letter-spacing:1px">规模化交付</span>的人。
+        <span class="punch">他讲企业落地 · KING 讲个人变现 · 视角互补</span>
+      </div>
+    </div>
   </section>
 
   <!-- ============ 价值表 ============ -->
@@ -750,7 +795,7 @@ body{
       <i class="tl"></i><i class="br"></i>
       <div class="vrow"><span class="lbl">12 场「乘势一线分享会」</span><span class="val">≥ 1200 元</span></div>
       <div class="vrow"><span class="lbl"><strong>乘势大咖团长期陪伴</strong></span><span class="val">难以定价</span></div>
-      <div class="vrow"><span class="lbl">45 节体系化正课</span><span class="val">≥ 899 元</span></div>
+      <div class="vrow"><span class="lbl">42 节体系化正课</span><span class="val">≥ 899 元</span></div>
       <div class="vrow"><span class="lbl">群内持续答疑 + 案例库</span><span class="val">≥ 1000 元</span></div>
       <div class="vrow"><span class="lbl">课程持续更新 + 资产包</span><span class="val">≥ 1000 元</span></div>
       <div class="vrow total"><span class="lbl">总 价 值</span><span class="val">5000+ 元</span></div>
@@ -800,7 +845,7 @@ body{
     </div>
     <div class="grtee reveal">
       <div class="grtee-item">一年「乘势实战社」+「乘势大咖团」陪伴</div>
-      <div class="grtee-item">终身课程访问 + 课程持续迭代</div>
+      <div class="grtee-item">课程持续迭代(AI 在变 · 课也一直在变)</div>
       <div class="grtee-item">7 天内不满意,无条件退款</div>
     </div>
   </section>
@@ -808,14 +853,15 @@ body{
   <!-- ============ CTA ============ -->
   <section class="cta">
     <div class="cta-top reveal">CHENG · SHI · NOW</div>
-    <div class="cta-price reveal" data-d="1" id="cta-price"><span id="cta-num">899</span><span class="yuan">元</span></div>
-    <div class="cta-line reveal" data-d="2"></div>
+    <div class="cta-badge reveal" data-d="1">★ 新 课 首 发 · 限 时 特 惠 ★</div>
+    <div class="cta-price reveal" data-d="2" id="cta-price"><span id="cta-num">5000</span><span class="yuan">元</span></div>
+    <div class="cta-line reveal" data-d="3"></div>
     <div class="cta-quote reveal" data-d="3">
       虽 有 智 慧 · 不 如 乘 势<br/>
       普 通 人 这 十 年 最 大 的 势 · 是 A I
     </div>
     <div class="cta-final reveal" data-d="4">你 乘 到 了 吗</div>
-    <a class="cta-btn reveal" data-d="5" href="#" id="cta-btn">立 即 加 入</a>
+    <a class="cta-btn reveal" data-d="5" href="https://56h5e.xetslk.com/s/ch3w3" target="_blank" rel="noopener" id="cta-btn">立 即 加 入</a>
   </section>
 
   <div class="footer">乘 势 · AI 商业实战课 · 数字生命 KING · MMXXVI</div>
@@ -824,7 +870,7 @@ body{
 <!-- 浮动底部 CTA(手机端) -->
 <div class="floating-cta" id="floatCta">
   <div class="price">¥899<small>原价 5000+</small></div>
-  <a class="btn" href="#cta-btn">立 即 加 入</a>
+  <a class="btn" href="https://56h5e.xetslk.com/s/ch3w3" target="_blank" rel="noopener">立 即 加 入</a>
 </div>
 
 <script>
@@ -865,24 +911,24 @@ window.addEventListener('scroll', () => {
   });
 }, { passive: true });
 
-// 价格数字累加 + 弹动
+// 价格数字: 从 5000 降到 899 + 弹动
 const priceEl = document.getElementById('cta-price');
 const priceNum = document.getElementById('cta-num');
-function animateNum(el, target, dur) {
+function animateNum(el, from, to, dur) {
   const start = performance.now();
   function tick(t) {
     const p = Math.min((t - start) / dur, 1);
     const eased = 1 - Math.pow(1 - p, 3);
-    el.textContent = Math.floor(eased * target);
+    el.textContent = Math.floor(from + (to - from) * eased);
     if (p < 1) requestAnimationFrame(tick);
-    else el.textContent = target;
+    else el.textContent = to;
   }
   requestAnimationFrame(tick);
 }
 const priceObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      animateNum(priceNum, 899, 1600);
+      animateNum(priceNum, 5000, 899, 1800);
       e.target.style.animation = 'none';
       void e.target.offsetWidth;
       e.target.style.animation = 'price-glow 4s ease-in-out infinite, bounce 0.8s cubic-bezier(.42,1.4,.36,1)';
